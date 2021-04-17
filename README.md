@@ -36,6 +36,12 @@ To run the dev server on your local machines external ip, using port 5000:
 python server.py
 ```
 
+## Usage
+
+Visiting root will show you a login screen where you can register, reset password etc.
+
+Admin section can be found in /admin which requires an admin user to be logged in. The default admin credentials can be found in users.csv.
+
 ## Design Details
 
 The app is wired together inside app.py, which is imported into server.py.
