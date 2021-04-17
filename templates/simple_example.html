@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% import "bootstrap/wtf.html" as wtf %}
 {% block extra_libraries %}
 <script
 src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -19,29 +20,12 @@ crossorigin="anonymous"></script>
 
     <div class="page1024">
         <h1>Simple Example</h1>
-        <form id="our_form">
-            Text: <input type="text" id="stuff_for_db" name="stuff_for_db" value="This text will be submitted and added to the database" width=180>                
-            </input><br><br>
-            <input type="button" id="post-btn" value="Submit">
-        </form>
+        <form method="post">
+            <fieldset>
+              {{ wtf.quick_form(form, button_map={'submit':'success'}) }}
+            </fieldset>
+          </form>
     </div>
 
-    <script>
-        $(function() {
-            $("#post-btn").click(function() {
-                $.ajax({
-                    method: 'POST',
-                    url: 'simple-example-api',
-                    data: $("#our_form").serialize(),
-                    success: function (response) {
-                        alert("Server replied: ", response.status)
-                    },
-                    error: function (response) {
-                        alert("Server error: ", response.status);
-                    },
-                });
-            });
-        });
-    </script>
 
 {% endblock %}

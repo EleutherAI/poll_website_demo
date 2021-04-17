@@ -4,6 +4,7 @@ flask-wtf
 flask-sqlalchemy
 flask-migrate
 flask-admin
+flask-bootstrap
 pyjwt
 sqlalchemy
 wtforms[email]

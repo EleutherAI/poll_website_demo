@@ -7,6 +7,7 @@ from flask_login import current_user, login_user, login_required, logout_user
 from forms import LoginForm
 from forms import ResetPasswordRequestForm
 from forms import ResetPasswordForm
+from forms import ExampleForm
 
 from emailer import send_password_reset_email
 
@@ -38,25 +39,18 @@ def page_not_found(e):
 
 # I commented out @login_required to make testing easier
 
-@app.route('/simple-example')
-# @login_required
+@app.route('/simple-example', methods=['GET', 'POST'])
+@login_required
 def simple_example_view():
-    return render_template('simple_example.html')
+    print(current_user)
 
-@app.route('/simple-example-api', methods = ['POST'])
-def simple_example_api():
-    post_data = request.get_data()
-    print(post_data)
+    form = ExampleForm()
 
-    # Didn't get time to test the db logic but this should work?
-    
-    bmk_data = Bmk()
-    bmk_data.text = request.form.get("stuff_for_db")
-    db.session.add(bmk_data)
-    db.session.commit()
+    if form.validate_on_submit():
+        print(list(form))
+        print(form.text.data)
 
-    res = {"status": "ok"}
-    return jsonify(res)
+    return render_template('simple_example.html', form=form)
 
 # Authentication Stuff
 # ===================================================================
