@@ -45,15 +45,15 @@ def simple_example_view():
 
 @app.route('/simple-example-api', methods = ['POST'])
 def simple_example_api():
-    json_post = request.get_json()
-    print(json_post)
+    post_data = request.get_data()
+    print(post_data)
 
     # Didn't get time to test the db logic but this should work?
     
-    # bmk_data = Bmk()
-    # bmk_data.text = json_post["stuff_for_db"]
-    # db.session.add(bmk_data)
-    # db.session.commit()
+    bmk_data = Bmk()
+    bmk_data.text = request.form.get("stuff_for_db")
+    db.session.add(bmk_data)
+    db.session.commit()
 
     res = {"status": "ok"}
     return jsonify(res)
