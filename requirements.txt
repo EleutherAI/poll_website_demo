@@ -1,0 +1,9 @@
+flask
+flask-login
+flask-wtf
+flask-sqlalchemy
+flask-migrate
+flask-admin
+pyjwt
+sqlalchemy
+wtforms[email]
