@@ -12,7 +12,7 @@ Backend sqlite database (flask-sqlalchemy, flask-migrate)
 
 ## To Do
 
-Fix the admin section blowing up when you aren't logged in.
+Fix the admin section blowing up when you aren't logged in.  
 Copy over from Votr the polling logic.
 
 ## Installation
