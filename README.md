@@ -28,7 +28,7 @@ Create the database:
 ./recreate_db.sh
 ```
 
-To run the dev server on your local machines external ip:
+To run the dev server on your local machines external ip, using port 5000:
 ```
 python server.py
 ```
