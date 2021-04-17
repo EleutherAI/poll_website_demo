@@ -10,6 +10,9 @@ Admin Section (flask-admin)
 Authentication (flask-login, pyjwt)
 Backend sqlite database (flask-sqlalchemy, flask-migrate)
 
+To Do:
+Copy over from Votr the polling logic.
+
 ## Installation
 
 Clone, copy the config template and set the config items correctly. Secret key
