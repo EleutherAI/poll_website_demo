@@ -1,6 +1,4 @@
-# poll_website_demo
-
-* Flask Based Polling Website Demo
+# Flask Based Polling Website Demo
 
 Basic implementation of a polling website with authentication and administration backend.
 
@@ -12,7 +10,7 @@ Admin Section (flask-admin)
 Authentication (flask-login, pyjwt)
 Backend sqlite database (flask-sqlalchemy, flask-migrate)
 
-** Installation
+## Installation
 
 Clone, copy the config template and set the config items correctly. Secret key
 is used to create jwt. Email config is used for sending password reset emails
@@ -35,7 +33,7 @@ To run the dev server on your local machines external ip:
 python server.py
 ```
 
-** Design Details
+## Design Details
 
 The app is wired together inside app.py, which is imported into server.py.
 
@@ -53,4 +51,7 @@ Stylesheets can be found in static/css. We use a reset sheet and a main.css curr
 
 static also has a bunch of junk found in the html5 boilerplate in case you want it. You can replace the favicon.ico if wanted.
 
+jquery is included in the template if you want to use it - just write javascript in the templates you use. To serve react I'd probably build a separate react pipeline and just copy the output of build and serve it up using a flask endpoint (unless there's something better out there I haven't used yet).
+
+I pulled this application from something else I wrote and left the print and excel buttons in case we ever want to do exporting stuff.
 
