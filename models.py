@@ -46,6 +46,12 @@ class User(db.Model, UserMixin):
             return
         return User.query.get(id)
 
+
+class Bmk(db.Model):
+    __tablename__ = 'bmk'
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(128))
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))

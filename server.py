@@ -14,10 +14,12 @@ from app import app
 from app import db
 from app import admin
 
-from models import User
+from models import User, Bmk
 
 from flask_admin.contrib.sqla import ModelView
 
+# Index and 404
+# ===================================================================
 @app.route('/')
 @login_required
 def index():
@@ -26,6 +28,35 @@ def index():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+# Example for bmk
+# ===================================================================
+
+# This first route returns a template with a text box and button that 
+# when clicked will call the simple-example-api and save this info to the 
+# database.
+
+# I commented out @login_required to make testing easier
+
+@app.route('/simple-example')
+# @login_required
+def simple_example_view():
+    return render_template('simple_example.html')
+
+@app.route('/simple-example-api', methods = ['POST'])
+def simple_example_api():
+    json_post = request.get_json()
+    print(json_post)
+
+    # Didn't get time to test the db logic but this should work?
+    
+    # bmk_data = Bmk()
+    # bmk_data.text = json_post["stuff_for_db"]
+    # db.session.add(bmk_data)
+    # db.session.commit()
+
+    res = {"status": "ok"}
+    return jsonify(res)
 
 # Authentication Stuff
 # ===================================================================
